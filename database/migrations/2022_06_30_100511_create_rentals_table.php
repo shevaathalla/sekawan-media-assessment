@@ -17,7 +17,7 @@ class CreateRentalsTable extends Migration
             $table->id();
             $table->foreignId('vehicle_id')->constrained()->onDelete('cascade');
             $table->foreignId('driver_id')->constrained()->onDelete('cascade');
-            $table->integer('petrol_usage');
+            $table->integer('current_petrol')->default(0);
             $table->enum('status', ['pending', 'approved', 'rejected','finished'])->default('pending');
             $table->timestamps();
         });

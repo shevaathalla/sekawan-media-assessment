@@ -38,7 +38,7 @@ class VehicleOwnershipController extends Controller
         $request->validate([
             'company_name' => ['required','max:255','string'],
             'address' => ['required','string'],
-            'phone_number' => ['required','string','regex:/(01)[0-9]{9}/'],
+            'phone_number' => ['required','string'],
         ]);
         
         VehicleOwnership::create($request->all());

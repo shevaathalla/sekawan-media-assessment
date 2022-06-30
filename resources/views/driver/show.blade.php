@@ -1,16 +1,16 @@
 @extends('layouts.master')
 @section('title')
-    Show Ownership
+    Show Driver
 @endsection
 @section('content')
     <section class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Company Details</h4>
+                    <h4>Driver Details</h4>
                 </div>
                 <div class="card-body">
-                    <p>In this page you can view detail of the company {{ $vehicleOwnership->company_name }}!</p>
+                    <p>In this page you can view detail of the driver {{ $driver->name }}!</p>
                 </div>
             </div>
         </div>
@@ -21,42 +21,45 @@
                         <table>
                             <tr>
                                 <td colspan="2">
-                                    <p>Company Name</p>
+                                    <p>Driver Name</p>
                                 </td>
                                 <td>
-                                    <p class="fw-bold ms-5">{{ $vehicleOwnership->company_name }}</p>
+                                    <p class="fw-bold ms-5">{{ $driver->name }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <p>Company Address</p>
+                                    <p>Driver Address</p>
                                 </td>
                                 <td>
-                                    <p class="fw-bold ms-5">{{ $vehicleOwnership->address }}</p>
+                                    <p class="fw-bold ms-5">{{ $driver->address }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <p>Company Phone</p>
+                                    <p>Driver Phone</p>
                                 </td>
                                 <td>
-                                    <p class="fw-bold ms-5">{{ $vehicleOwnership->phone_number }}</p>
+                                    <p class="fw-bold ms-5">{{ $driver->phone_number }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <p>Vehicle Owned</p>
+                                    <p>Rental Made</p>
                                 </td>
                                 <td>
-                                    <ul class="ms-4">
-                                        @foreach ($vehicleOwnership->vehicles as $vehicle)
-                                            <li class="fw-bold">{{ $vehicle->name }} <a
-                                                    href="{{ route('vehicle.show', ['id' => $vehicle->id]) }}">
-                                                    ({{ $vehicle->code }})
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                                    @if (!$driver->rentals->isEmpty())
+                                        <ul>
+                                            @foreach ($driver->rentals as $rental)
+                                                <li class="ms-4 fw-bold">Rental with ID: <a href=""
+                                                        class="text-primary">#{{ $rental->id }}</a>
+                                                    ({{ $rental->status }})</li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        <p class="ms-5 fw-bold">The driver has never made a loan yet!</p>
+                                    @endif
+
                                 </td>
                             </tr>
                         </table>

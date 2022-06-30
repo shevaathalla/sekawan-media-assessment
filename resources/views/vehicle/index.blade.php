@@ -34,10 +34,7 @@
                 </div>
             </div>
 
-        </div>
-        <div class="col-12 col-lg-3">
-
-        </div>
+        </div>        
     </section>
 @endsection
 @section('scripts')

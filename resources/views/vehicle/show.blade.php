@@ -56,16 +56,21 @@
                                     <p>Last Service</p>
                                 </td>
                                 <td>
-                                    <p class="fw-bold ms-5">{{ $vehicle->last_service_date }}</p>
+                                    @if ($vehicle->last_service)
+                                        <p class="fw-bold ms-5">{{ $vehicle->last_service->format('d-m-Y') }}</p>
+                                    @else
+                                        <p class="fw-bold ms-5">This vehicle has not been serviced yet!</p>
+                                    @endif
                                 </td>
-                            </tr>                            
+                            </tr>
                             <tr>
                                 <td colspan="2">
                                     <p>Owned by</p>
                                 </td>
                                 <td>
                                     <p>
-                                        <a href="{{ route('ownership.show',['id' => $vehicle->vehicleOwnership->id ]) }}" class="fw-bold text-primary ms-5">{{ $vehicle->vehicleOwnership->company_name }}</a>
+                                        <a href="{{ route('ownership.show', ['id' => $vehicle->vehicleOwnership->id]) }}"
+                                            class="fw-bold text-primary ms-5">{{ $vehicle->vehicleOwnership->company_name }}</a>
                                     </p>
                                 </td>
                             </tr>

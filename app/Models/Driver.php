@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Driver extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'address',
+        'phone_number',
+    ];
+
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
 }

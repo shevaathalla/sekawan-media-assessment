@@ -71,6 +71,15 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label for="current_petrol">Inital Petrol</label>
+                                    <input type="number" class="form-control" id="current_petrol" name="current petrol" placeholder="Enter Initial Petrol">
+                                    @error('current_petrol')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
 
                                 <button type="submit" class="btn btn-primary my-2">Submit</button>
                             </form>

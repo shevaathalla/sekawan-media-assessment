@@ -16,11 +16,12 @@ class RentalFactory extends Factory
      */
     public function definition()
     {
+        $status = $this->faker->randomElement(RentalStatus::asArray());
         return [
             'vehicle_id' => Vehicle::get()->random()->id,
             'driver_id' => Driver::get()->random()->id,
-            'petrol_usage' => $this->faker->numberBetween(1, 100),
-            'status' => $this->faker->randomElement(RentalStatus::asArray()),
+            'petrol_usage' => ($status == RentalStatus::Finsihed) ? $this->faker->randomFloat(2, 0, 100) : 0,
+            'status' => $status,
         ];
     }
 }

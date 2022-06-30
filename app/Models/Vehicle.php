@@ -12,7 +12,7 @@ class Vehicle extends Model
     protected $fillable = [
         'vehicle_ownership_id',
         'vehicle_status',
-        'vehicle_type',
+        'type',
         'current_petrol',
         'code',
         'name',
@@ -21,6 +21,11 @@ class Vehicle extends Model
     public function vehicleOwnership()
     {
         return $this->belongsTo(VehicleOwnership::class);
+    }
+
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
     }
 
     protected function getTypeAttribute(){

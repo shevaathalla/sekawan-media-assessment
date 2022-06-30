@@ -55,12 +55,41 @@
                     <span>Vehicle List</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ Request::is('driver*') ? 'active' : '' }}">
+                <a href="{{ route('driver.index') }}" class='sidebar-link'>
+                    <i class="bi bi-hammer"></i>
+                    <span>Driver List</span>
+                </a>
+            </li>
             <li class="sidebar-item {{ Request::is('ownership*') ? 'active' : '' }}">
                 <a href="{{ route('ownership.index') }}" class='sidebar-link'>
                     <i class="bi bi-people-fill"></i>
                     <span>Vehicle Ownership</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ Request::is('rental*') ? 'active' : '' }}">
+                <a href="{{ route('rental.index') }}" class='sidebar-link'>
+                    <i class="bi bi-bag-fill"></i>
+                    <span>Rental Data</span>
+                </a>
+            </li>
+            @if (Auth::user()->level == \App\Enums\UserLevel::BranchManager or Auth::user()->level == \App\Enums\UserLevel::RegionManager)
+            <li class="sidebar-item {{ Request::is('branch*') ? 'active' : '' }}">
+                <a href="{{ route('branch.showApprovement') }}" class='sidebar-link'>
+                    <i class="bi bi-inbox-fill"></i>
+                    <span>Branch Approvment</span>
+                </a>
+            </li>
+            @endif
+            @if (Auth::user()->level == \App\Enums\UserLevel::RegionManager)
+                
+            <li class="sidebar-item {{ Request::is('region*') ? 'active' : '' }}">
+                <a href="{{ route('region.showApprovement') }}" class='sidebar-link'>
+                    <i class="bi bi-inboxes-fill"></i>
+                    <span>Region Approvment</span>
+                </a>
+            </li>
+            @endif
             <li class="sidebar-item">
                 <a class='sidebar-link' data-bs-toggle="modal" data-bs-target="#logoutModal">
                     <i class="bi bi-door-open-fill"></i>

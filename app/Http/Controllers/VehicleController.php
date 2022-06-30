@@ -24,7 +24,7 @@ class VehicleController extends Controller
 
     public function show($id)
     {
-        $vehicle = Vehicle::find($id);
+        $vehicle = Vehicle::with('vehicleOwnership')->find($id);
         return view('vehicle.show', compact('vehicle'));
     }
 
@@ -41,9 +41,10 @@ class VehicleController extends Controller
             'name' => ['required', 'max:255', 'string'],
             'code' => ['required', 'string'],
             'type' => ['required', 'string'],
+            'current_petrol' => ['required', 'numeric'],
             'vehicle_ownership_id' => ['required', 'integer'],
         ]);
-
+        
         Vehicle::create($request->all());
         return redirect()->route('vehicle.index')->with('success', 'Vehicle created successfully');
     }

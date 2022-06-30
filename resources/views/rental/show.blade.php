@@ -1,16 +1,16 @@
 @extends('layouts.master')
 @section('title')
-    Show Ownership
+    Show Rental
 @endsection
 @section('content')
     <section class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Company Details</h4>
+                    <h4>Rental Details</h4>
                 </div>
                 <div class="card-body">
-                    <p>In this page you can view detail of the company {{ $vehicleOwnership->company_name }}!</p>
+                    <p>In this page you can view detail of the rental with id #{{ $rental->id }}!</p>
                 </div>
             </div>
         </div>
@@ -21,42 +21,48 @@
                         <table>
                             <tr>
                                 <td colspan="2">
-                                    <p>Company Name</p>
+                                    <p>Rental ID</p>
                                 </td>
                                 <td>
-                                    <p class="fw-bold ms-5">{{ $vehicleOwnership->company_name }}</p>
+                                    <p class="fw-bold ms-5">{{ $rental->id }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <p>Company Address</p>
+                                    <p>Rented by</p>
                                 </td>
                                 <td>
-                                    <p class="fw-bold ms-5">{{ $vehicleOwnership->address }}</p>
+                                    <p class="fw-bold ms-5">
+                                        <a class="text-primary"
+                                            href="{{ route('driver.show', ['id' => $rental->driver->id]) }}">{{ $rental->driver->name }}</a>
+                                    </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <p>Company Phone</p>
+                                    <p>Vehicle Data</p>
                                 </td>
                                 <td>
-                                    <p class="fw-bold ms-5">{{ $vehicleOwnership->phone_number }}</p>
+                                    <p class="fw-bold ms-5">
+                                        <a class="text-primary"
+                                            href="{{ route('vehicle.show', ['id' => $rental->vehicle->id]) }}">{{ $rental->vehicle->code }}</a>
+                                    </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <p>Vehicle Owned</p>
+                                    <p>Gas Usage</p>
                                 </td>
                                 <td>
-                                    <ul class="ms-4">
-                                        @foreach ($vehicleOwnership->vehicles as $vehicle)
-                                            <li class="fw-bold">{{ $vehicle->name }} <a
-                                                    href="{{ route('vehicle.show', ['id' => $vehicle->id]) }}">
-                                                    ({{ $vehicle->code }})
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                                    <p class="fw-bold ms-5">{{ $rental->petrol_usage }}L</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p>Rental Status</p>
+                                </td>
+                                <td>
+                                    <p class="fw-bold ms-5">{{ $rental->status}}</p>
                                 </td>
                             </tr>
                         </table>
