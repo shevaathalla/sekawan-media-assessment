@@ -1,0 +1,70 @@
+Project nickel_drive {
+  database_type: 'MySQL'
+  Note: 'Sebuah perusahaan tambang nikel berlokasi di beberapa daerah (region), satu kantor pusat, satu kantor cabang dan memiliki enam tambang dengan lokasi yang berbeda. Perusahaan tersebut mempunyai banyak kendaraan dengan jenis kendaraan angkutan orang dan angkutan barang. Selain kendaraan milik perusahaan, ada juga kendaraan yang disewa dari perusahaan persewaan. '
+}
+
+Table users {
+    id int [pk, increment]
+    name varchar
+    email varchar [unique]
+    password varchar
+    level user_level
+    created_at timestamp [default: `now()`]
+    updated_at timestamp [default: `now()`]
+}
+
+Enum user_level {
+    admin
+    branch_manager
+    region_manager
+}
+
+Table vehicles{
+    id int [pk, increment]
+    name varchar
+    stock int [default: 0]
+    type vehicle_type
+    current_petrol int [default: 0]
+    status vehicle_status
+    ownership_vehicles_id int [ref: > vehicle_ownership.id]
+    last_service_date timestamp    
+    created_at timestamp [default: `now()`]
+    updated_at timestamp [default: `now()`]
+}
+
+Enum vehicle_status {
+    available
+    unavailable
+}
+
+Enum vehicle_type {
+    people_transport
+    cargo_transport
+}
+
+Table vehicle_ownership {
+    id int [pk, increment]
+    company_name varchar
+    address varchar
+    phone_number varchar
+    created_at timestamp [default: `now()`]
+    updated_at timestamp [default: `now()`]
+}
+
+Table drivers {
+    id int [pk, increment]
+    name varchar
+    phone_number varchar
+    address varchar    
+    created_at timestamp [default: `now()`]
+    updated_at timestamp [default: `now()`]
+}
+
+Table rentals{
+    id int [pk, increment]
+    vehicle_id int [ref: > vehicles.id]
+    driver_id int  [ref: > drivers.id]
+    petrol_usage int
+    created_at timestamp [default: `now()`]
+    updated_at timestamp [default: `now()`]  
+}
