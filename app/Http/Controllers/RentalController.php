@@ -20,8 +20,7 @@ class RentalController extends Controller
             return DataTables::of($rentals)
                 ->addColumn('action', function ($rental) {
                     return '<a href="' . route('rental.show', ["id" => (int) $rental->id]) . '"class="btn btn-primary btn-sm"><i class="bi bi-info-circle-fill me-2"></i>Show Details</a>';
-                })
-                ->toJson();
+                })->toJson();
         }
         return view('rental.index');
     }
