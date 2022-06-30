@@ -2,7 +2,16 @@
 <html lang="en">
 
 <head>
-    @include('layouts.head')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title')</title>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
 
 </head>
 
@@ -18,9 +27,6 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-                <h3>Profile Statistics</h3>
-            </div>
             <div class="page-content">
                 @yield('content')
             </div>
@@ -30,7 +36,29 @@
             </footer>
         </div>
     </div>
-    @include('layouts.script')
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: 'Success',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
+        </script>
+    @elseif (session('error'))
+        <script>
+            Swal.fire({
+                title: 'Error',
+                text: '{{ session('error') }}',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
+        </script>
+    @endif
+    @yield('scripts')
 
 </body>
 

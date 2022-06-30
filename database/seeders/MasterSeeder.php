@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Enums\UserLevel;
 use App\Models\User;
+use App\Models\VehicleOwnership;
 use Illuminate\Database\Seeder;
 
 class MasterSeeder extends Seeder
@@ -34,6 +35,12 @@ class MasterSeeder extends Seeder
             'email' => 'region_manager@mail.com',
             'password' => bcrypt('password'),
             'level' => UserLevel::RegionManager,
+        ]);
+
+        VehicleOwnership::factory()->create([
+            'company_name' => 'Sekawan Nickel',
+            'address' => 'Jl. Sekawan Nickel',
+            'phone_number' => '081234567890',
         ]);
     }
 }

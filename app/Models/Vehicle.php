@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicle extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'vehicle_ownership_id',
+        'vehicle_status',
+        'vehicle_type',
+        'current_petrol',
+        'code',
+        'name',
+    ];
+
+    public function vehicleOwnership()
+    {
+        return $this->belongsTo(VehicleOwnership::class);
+    }
+
+    protected function getTypeAttribute(){
+        return ucfirst(str_replace('_', ' ', $this->attributes['type']));
+    }
 }
