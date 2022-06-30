@@ -22,7 +22,7 @@ Enum user_level {
 Table vehicles{
     id int [pk, increment]
     name varchar
-    stock int [default: 0]
+    code varchar [unique]
     type vehicle_type
     current_petrol int [default: 0]
     status vehicle_status
@@ -65,6 +65,14 @@ Table rentals{
     vehicle_id int [ref: > vehicles.id]
     driver_id int  [ref: > drivers.id]
     petrol_usage int
+    status rental_status
     created_at timestamp [default: `now()`]
     updated_at timestamp [default: `now()`]  
+}
+
+Enum rental_status {
+    pending
+    approved
+    rejected    
+    finished    
 }
