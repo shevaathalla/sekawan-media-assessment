@@ -58,6 +58,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/rental', [RentalController::class, 'index'])->name('rental.index');
     Route::get('/rental/create', [RentalController::class, 'create'])->name('rental.create');
     Route::post('/rental/store', [RentalController::class, 'store'])->name('rental.store');
+    Route::get('/rental/export',[RentalController::class, 'export'])->name('rental.export');
     Route::get('/rental/{id}', [RentalController::class, 'show'])->name('rental.show');
 
     //Approval

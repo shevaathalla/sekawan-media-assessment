@@ -18,7 +18,7 @@
         <div class="card">
             <div class="card-header">
                 <a class="float-start btn btn-success fw-bold" href="{{ route('rental.create') }}">Add New Rental</a>
-                <a class="float-end btn btn-success fw-bold" href="{{ route('rental.create') }}">Export to Excel</a>
+                <a class="float-end btn btn-success fw-bold" href="{{ route('rental.export') }}">Export to Excel</a>
             </div>
             <div class="card-body">
                 <table class="table table-responsive" id="rental-table">

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Enums\RentalStatus;
 use App\Enums\VehicleStatus;
+use App\Exports\RentalExport;
 use App\Models\Driver;
 use App\Models\Rental;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 
 class RentalController extends Controller
@@ -87,5 +89,10 @@ class RentalController extends Controller
             $rental->vehicle->save();
         });
         return redirect()->route('rental.index')->with('success', 'Rental completed successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new RentalExport, 'rentals.xlsx');
     }
 }
