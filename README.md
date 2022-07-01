@@ -14,6 +14,11 @@ Path: README.md
 
 - Username: admin@mail.com
 - Password: password
+  
+## Flow Application
+
+https://docs.google.com/document/d/1bCjezpGD6jWndCf4pXqdlsIS-YpzeIzbL6u0ATyMIoE/edit?usp=sharing
+
 
 ## Requirement
 

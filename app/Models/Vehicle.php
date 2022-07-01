@@ -28,7 +28,13 @@ class Vehicle extends Model
         return $this->hasMany(Rental::class);
     }
 
-    protected function getTypeAttribute(){
+    public function getStatusAttribute()
+    {
+        return ucfirst($this->attributes['status']);
+    }
+
+    protected function getTypeAttribute()
+    {
         return ucfirst(str_replace('_', ' ', $this->attributes['type']));
     }
 }

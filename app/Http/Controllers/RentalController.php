@@ -67,6 +67,8 @@ class RentalController extends Controller
         $rental = Rental::find($id);
         $rental->status = RentalStatus::Rejected;
         $rental->save();
+        $rental->vehicle->status = VehicleStatus::Available;
+        $rental->vehicle->save();
         return redirect()->route('rental.index')->with('success', 'Rental rejected successfully');
     }
 
