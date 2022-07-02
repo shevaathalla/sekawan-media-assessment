@@ -145,8 +145,4 @@ If you want to add the dummy data do the following command it will generate 100 
 
 # Flow Application
 
-- Authenticate
-  <iframe src="https://scribehow.com/embed/Auth_Nickel_Drive_Workflow__a2D8DFrHRi-DqwMUymlJxQ" width="640" height="640" allowfullscreen frameborder="0"></iframe>
-
-- Register New Vehicle and Company Provider Workflow
-  <iframe src="https://scribehow.com/embed/Register_New_Vehicle_and_Company_Provider_Workflow__74i0qW03TLeP8gTq2n-EPw" width="640" height="640" allowfullscreen frameborder="0"></iframe>
+- Notion Link: [https://www.notion.so/Sekawan-Media-Assessment-Flow-Application-f8f8f8f8f8f8](https://trapezoidal-girdle-fac.notion.site/Nickle-Drive-Workflow-064a48badd594b4abfd7b81d6336990a)
