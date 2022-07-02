@@ -20,8 +20,9 @@ class RentalFactory extends Factory
         return [
             'vehicle_id' => Vehicle::get()->random()->id,
             'driver_id' => Driver::get()->random()->id,
-            'petrol_usage' => ($status == RentalStatus::Finsihed) ? $this->faker->randomFloat(2, 0, 100) : 0,
+            'current_petrol' => ($status == RentalStatus::Finsihed) ? $this->faker->randomFloat(2, 0, 100) : 0,
             'status' => $status,
+            'created_at' => $this->faker->dateTimeThisYear(),            
         ];
     }
 }
