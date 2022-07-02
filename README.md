@@ -12,14 +12,21 @@ Path: README.md
 
 ## Credentials
 
+**Admin**
+
 - Username: admin@mail.com
 - Password: password
+
+**Branch Manager**
+
+- Username: branch_manager@mail.com
+- Password: password
+
+**Region Manager**
+
+- Username: region_manager@mail.com
+- Password: password
   
-## Flow Application
-
-https://docs.google.com/document/d/1bCjezpGD6jWndCf4pXqdlsIS-YpzeIzbL6u0ATyMIoE/edit?usp=sharing
-
-
 ## Requirement
 
 -   Laravel (Composer)
@@ -113,6 +120,8 @@ If you want to add the dummy data do the following command it will generate 100 
 
     php artisan migrate:refresh
 
+--- 
+
 # Code overview
 
 ## Folders
@@ -133,3 +142,11 @@ If you want to add the dummy data do the following command it will generate 100 
 **_Note_** : You can quickly set the database information and other variables in this file and have the application fully working.
 
 ---
+
+# Flow Application
+
+- Authenticate
+  <iframe src="https://scribehow.com/embed/Auth_Nickel_Drive_Workflow__a2D8DFrHRi-DqwMUymlJxQ" width="640" height="640" allowfullscreen frameborder="0"></iframe>
+
+- Register New Vehicle and Company Provider Workflow
+  <iframe src="https://scribehow.com/embed/Register_New_Vehicle_and_Company_Provider_Workflow__74i0qW03TLeP8gTq2n-EPw" width="640" height="640" allowfullscreen frameborder="0"></iframe>
